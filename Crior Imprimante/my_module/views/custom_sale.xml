@@ -1,0 +1,51 @@
+<custom_sale>
+    <record id="view_custom_sale_form" model="ir.ui.view">
+        <field name="name">custom.sale.form</field>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <form string="Custom Sale Order">
+                <sheet>
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="date_order"/>
+                        <field name="amount_total"/>
+                    </group>
+                    <notebook>
+                        <page string="Order Lines">
+                            <field name="order_line">
+                                <tree editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="product_uom_qty"/>
+                                    <field name="price_unit"/>
+                                    <field name="price_subtotal"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_custom_sale_tree" model="ir.ui.view">
+        <field name="name">custom.sale.tree</field>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <tree string="Custom Sale Orders">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="date_order"/>
+                <field name="amount_total"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_custom_sale" model="ir.actions.act_window">
+        <field name="name">Custom Sales</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_custom_sale_tree"/>
+    </record>
+
+    <menuitem id="menu_custom_sale" name="Custom Sales" parent="sale.sale_order_menu" action="action_custom_sale"/>
+</custom_sale>

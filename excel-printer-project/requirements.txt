@@ -1,0 +1,4 @@
+xlsxwriter
+odoo
+impression-brother-cmd
+pytest

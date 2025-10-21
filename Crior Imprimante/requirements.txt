@@ -1,0 +1,11 @@
+# requirements.txt
+
+# List of dependencies for the Crior Imprimante project
+# Add any required packages below
+
+# Example dependencies
+# requests
+# pandas
+# openpyxl
+
+# Note: Uncomment and add the necessary packages as per your project requirements.

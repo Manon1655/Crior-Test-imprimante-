@@ -3,6 +3,7 @@ import io
 import xlsxwriter
 from odoo.exceptions import UserError  # type: ignore
 from impression_brother_cmd import print_postes_with_cut
+from printer.escp import send_to_printer  # Import the function to send data to the printer
 
 class Writer:
     def __init__(self, order, config, env, lines):
@@ -10,7 +11,7 @@ class Writer:
         self.config = config
         self.order = order
         self.lines = lines
-        self.sections = []  # Stockage pour impression poste par poste
+        self.sections = []  # Storage for printing by post
 
         output = io.BytesIO()
         self.workbook = xlsxwriter.Workbook(output, {'in_memory': True})
@@ -40,13 +41,15 @@ class Writer:
         output.seek(0)
         self.file_data = output.read()
 
-        # Impression automatique poste par poste avec découpe
+        # Print each section by post with automatic cutting
         try:
-            print_postes_with_cut(self.sections, printer_path="/dev/usb/lp0")  # à adapter au besoin
+            for section in self.sections:
+                post_name, content = section
+                send_to_printer(content)  # Send content to printer
         except Exception as e:
-            raise UserError(f"Erreur d'impression Brother : {e}")
+            raise UserError(f"Erreur d'impression : {e}")
 
-    # Toutes les autres méthodes (_getWorkcenters, _init_formats, _writeHeader, etc.) restent inchangées
+    # All other methods (_getWorkcenters, _init_formats, _writeHeader, etc.) remain unchanged
 
     def _writeForPost(self, post_name, post):
         contenu = []
@@ -120,4 +123,3 @@ class Writer:
 
         if post_name != 'Envoi':
             self.lastRow += 2
-            

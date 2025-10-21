@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "excel-printer-project"
+version = "0.1.0"
+description = "A project to generate Excel files and print sections using ESC/P commands."
+authors = ["Your Name <youremail@example.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+xlsxwriter = "^1.4.3"
+odoo = "^14.0"  # Adjust version as necessary
+impression_brother_cmd = "^1.0.0"  # Adjust version as necessary
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
