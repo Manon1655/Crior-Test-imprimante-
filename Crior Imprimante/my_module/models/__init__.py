@@ -1,3 +1,3 @@
-# filepath: c:\Users\manon\Desktop\Crior Imprimante\my_module\models\__init__.py
-from .models import *
-from .excel import *
+from . import models
+from . import excel
+from . import impression_brother_cmd

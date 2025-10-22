@@ -3,12 +3,16 @@
     "version": "1.0",
     "category": "Tools",
     "summary": "Module for managing printing tasks with Brother printers.",
-    "description": "This module provides functionalities for printing tasks, including the ability to format and send print jobs to Brother printers using ESC/P commands.",
-    "author": "Your Name",
-    "website": "http://yourwebsite.com",
+    "description": """
+        This module provides functionalities for printing tasks,
+        including formatting and sending print jobs to Brother printers
+        using ESC/P commands.
+    """,
+    "author": "Crior",
+    "website": "https://crior.example.com",
+    "license": "LGPL-3",
     "depends": [
-        "base",
-        "reporting"  # Add any other dependencies your module might need
+        "base"
     ],
     "data": [
         "security/ir.model.access.csv",
@@ -16,6 +20,6 @@
         "views/hide_price_zero_line.xml"
     ],
     "installable": True,
-    "application": False,
+    "application": True,
     "auto_install": False
 }

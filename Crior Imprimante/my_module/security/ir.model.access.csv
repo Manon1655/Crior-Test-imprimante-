@@ -1,3 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_my_module_model,Access My Module Model,model_my_module_model,base.group_user,1,1,1,1
-access_my_module_excel,Access My Module Excel,model_my_module_excel,base.group_user,1,1,1,1
+access_custom_sale_user,Custom Sale Access,model_custom_sale,base.group_user,1,1,1,1
+access_hide_price_zero_line_user,Hide Price Zero Line Access,model_hide_price_zero_line,base.group_user,1,1,1,1
+access_custom_sale_manager,Custom Sale Manager Access,model_custom_sale,base.group_system,1,1,1,1
+access_hide_price_zero_line_manager,Hide Price Zero Line Manager Access,model_hide_price_zero_line,base.group_system,1,1,1,1
+access_impression_brother_cmd_manager,Impression Brother CMD Manager Access,model_impression_brother_cmd,base.group_system,1,1,1,1
